@@ -1,0 +1,60 @@
+
+package metodos_numericos_ejercio1;
+import java.util.Scanner;
+public class Metodos_Numericos_Ejercio1 {
+
+    public static void main(String[] args) {
+        Scanner t=new Scanner (System.in);
+        
+        int base, exponente;
+       double calcularsumatroia;
+        System.out.println("Ingrese el valor de la base");
+        base=t.nextInt();
+        System.out.println("Ingrese el valor del exponente");
+        exponente=t.nextInt();
+        calcularsumatroia=calsum(base, exponente);
+        System.out.println("El resultado es:"+calcularsumatroia);
+         System.out.println(potencia(base, exponente));
+        
+        System.out.println(factorial(exponente));
+        
+        
+
+       
+    }
+    public static double potencia(int base, int exponente){
+    int resultado=1;
+    for(int i=1;i<=exponente;i++){
+        resultado=resultado*base;
+}
+        return resultado;
+    }
+    public static double factorial(int exponente){
+        double aux=1;
+        for(int i=2;i<=exponente;i++){
+            aux*=i;
+        }
+        return aux;
+    }
+    public static double calsum(int base, int exponente){
+   int i=0;
+        double sumatoria=0;
+       
+        //ciclo que hace la sumatoria
+        while (i<=exponente){
+            double numerador=0;
+            double denominador=0;
+
+            //Calcular numerador y denominador
+            numerador=potencia(base, exponente);
+            denominador=factorial(base);
+            //realizar la division y acumular el rresultado
+            sumatoria=sumatoria+(numerador/denominador);
+            
+            i++;
+        }
+        return sumatoria;
+    }
+
+    
+}
